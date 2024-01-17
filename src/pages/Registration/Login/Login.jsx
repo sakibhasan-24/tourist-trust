@@ -1,9 +1,32 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import GoogleButton from "../../../components/GoogleButton";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 export default function Login() {
+  const { userLogIn } = useAuth();
+  const navigate = useNavigate();
+  const handleLogIn = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    userLogIn(email, password).then((res) => {
+      const user = res.user;
+      if (user) {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Login Successfully",
+          text: `Welcome back ${user.displayName}`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+      navigate("/");
+    });
+  };
   return (
     <div className=" w-full sm:max-w-6xl mx-auto p-2 sm:p-10">
       <Helmet>
@@ -22,7 +45,7 @@ export default function Login() {
             Welcome Back
           </h1>
           <p className="text-2xl font-bold my-2">Please LogIn</p>
-          <form className="p-4">
+          <form onSubmit={handleLogIn} className="p-4">
             <input
               type="email"
               name="email"

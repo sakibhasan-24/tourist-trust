@@ -1,9 +1,74 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import GoogleButton from "../../../components/GoogleButton";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import useAuth from "../../../hooks/useAuth";
+import Swal from "sweetalert2";
+// import { useWindowSize } from "react-use/lib/useWindowSize";
+// import Confetti from "react-confetti";
 export default function SignUp() {
+  const { createUser, userLogOut } = useAuth();
+  const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
+  //   const { width, height } = useWindowSize();
+  //   console.log(width, height);
+  const imageHosting = import.meta.env.VITE_IMAGE_API_KEY;
+  //   console.log(imageHosting);
+  const image_key = `https://api.imgbb.com/1/upload?key=${imageHosting}`;
+  //   console.log(image_key);
+  const useAxiosPublicData = useAxiosPublic();
+
+  const onSubmit = async (data) => {
+    // const photo = e.target.image.value;
+    const photo = { image: data.image[0] };
+
+    // console.log(photo);
+    // need a public axios as any one can sign up
+    const res = await useAxiosPublicData.post(image_key, photo, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    // console.log(res.data.data.display_url);
+    const imageUrl = res.data.data.display_url;
+    const name = data.name;
+    const email = data.email;
+    const password = data.password;
+    if (password.length < 6) {
+      return Swal.fire("password must be 6 characters long");
+    }
+    if (!/(?=.*[A-Z])/.test(password)) {
+      return Swal.fire("password must contain one uppercase");
+    }
+    if (!/(?=.*[!@#$&*])/.test(password)) {
+      return Swal.fire("password must contain one special character");
+    }
+    createUser(email, password).then((res) => {
+      const user = res.user;
+      user.displayName = name;
+      user.photoURL = imageUrl;
+      const userInfo = {
+        name,
+        email,
+        photoURL: imageUrl,
+      };
+      useAxiosPublicData.post("/tourist-list", userInfo).then((res) => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            icon: "success",
+            title: "Sign Up Successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+        userLogOut().then((res) => {
+          navigate("/login");
+        });
+      });
+    });
+  };
   return (
     <div className="w-full sm:max-w-6xl mx-auto p-2 sm:p-10">
       <Helmet>
@@ -21,41 +86,34 @@ export default function SignUp() {
           <h1 className=" text-2xl sm:text-4xl font-bold text-center">
             Please Sign Up
           </h1>
-          <form className="p-2 sm:p-6 my-4">
+          <form onSubmit={handleSubmit(onSubmit)} className="p-2 sm:p-6 my-4">
             <input
+              {...register("name", { required: true })}
               type="text"
-              required
-              name="name"
-              id="name"
               placeholder="enter Your Name"
               className="px-4 py-3 rounded-lg mt-5 w-full   focus:outline-none focus:bg-slate-500 font-semibold "
             />
             <input
               type="email"
-              name="email"
-              id="email"
-              required
+              {...register("email", { required: true })}
               placeholder="enter Your Email"
               className="px-4 py-3 rounded-lg mt-5 w-full   focus:outline-none focus:bg-slate-500 font-semibold "
             />
             <input
               type="password"
-              name="password"
-              required
-              id="password"
+              {...register("password", { required: true })}
               placeholder="password (6 min,one number,one capital letter,one special character)"
               className="px-4 py-3 rounded-lg mt-5 w-full   focus:outline-none focus:bg-slate-500 text-xs "
             />
             <input
               type="file"
-              name="image"
-              id="image"
+              {...register("image")}
               className="px-4 py-3 rounded-lg mt-5 w-full  focus:outline-none focus:bg-slate-500 font-semibold cursor-pointer"
             />
             <input
               type="submit"
               value="Sign Up"
-              className="w-full bg-slate-500 text-white py-3 uppercase font-semibold  rounded-lg mt-5 font-semibold cursor-pointer hover:bg-slate-700"
+              className="w-full bg-slate-500 text-white py-3 uppercase   rounded-lg mt-5 font-semibold cursor-pointer hover:bg-slate-700"
             />
             <GoogleButton />
           </form>
