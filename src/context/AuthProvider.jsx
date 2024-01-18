@@ -45,12 +45,13 @@ export default function AuthProvider({ children }) {
         const userInfo = currentUser.email;
         axiosPublic.post("/jwt", userInfo).then((res) => {
           if (res.data.token) {
-            console.log(res.data.token);
+            // console.log(res.data.token);
             localStorage.setItem("token", res.data.token);
           }
         });
       } else {
         console.log("currently no user");
+        localStorage.removeItem("token");
       }
     });
     setLaoding(false);

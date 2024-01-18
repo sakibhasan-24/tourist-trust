@@ -1,0 +1,20 @@
+[
+  {
+    "photo": "https://img.freepik.com/free-photo/beautiful-tree-middle-field-covered-with-grass-with-tree-line-background_181624-29267.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1705449600&semt=ais",
+    "title": "Discover the Wonders of Nature",
+    "text": "Embark on a journey to explore the breathtaking beauty of nature. From majestic landscapes to serene environments, our tours offer an escape like no other. Immerse yourself in the charm of diverse destinations.",
+    "speciality": "Nature Exploration"
+  },
+  {
+    "photo": "https://wander-lush.org/wp-content/uploads/2020/12/UNESCO-Food-Heritage-CanvaPro-Mexican-cuisine.jpg",
+    "title": "Explore Culture and Food",
+    "text": "Step into the heart of vibrant cultures and traditions. Our tours provide an immersive cultural experience, allowing you to witness the rich heritage of each destination. Uncover the stories behind historical landmarks and local customs.",
+    "speciality": "Cultural Immersion"
+  },
+  {
+    "photo": "https://static.vecteezy.com/system/resources/previews/011/074/179/large_2x/young-person-hiking-female-standing-on-top-rock-backpack-woman-looking-at-beautiful-mountain-valley-at-sunlight-in-summer-landscape-with-sport-girl-high-hills-forest-sky-travel-and-tourism-photo.jpg",
+    "title": "Adventure Awaits",
+    "text": "For thrill-seekers and adventurers, our tours offer exciting escapades. Whether it's hiking through scenic trails, water sports, or exploring hidden gems, our itineraries are designed for those seeking an adrenaline rush.",
+    "speciality": "Adventure Tourism"
+  }
+]

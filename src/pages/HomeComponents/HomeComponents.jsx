@@ -3,6 +3,8 @@ import Banner from "../Home/Banner";
 import Slider from "../Home/Slider";
 import { Helmet } from "react-helmet-async";
 
+import ItemsTab from "../Caregories/ItemsTab";
+
 export default function HomeComponents() {
   return (
     <div>
@@ -10,6 +12,7 @@ export default function HomeComponents() {
         <title>tourist|Home</title>
       </Helmet>
       <Banner />
+      <ItemsTab />
       {/* <Slider /> */}
     </div>
   );
