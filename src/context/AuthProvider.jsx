@@ -9,8 +9,10 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 export const AuthContext = createContext(null);
 export default function AuthProvider({ children }) {
+  const axiosPublic = useAxiosPublic();
   const [user, setUser] = useState("");
   const [loading, setLaoding] = useState(true);
   const auth = getAuth(app);
@@ -40,6 +42,13 @@ export default function AuthProvider({ children }) {
       if (currentUser) {
         setUser(currentUser);
         // console.log(currentUser);
+        const userInfo = currentUser.email;
+        axiosPublic.post("/jwt", userInfo).then((res) => {
+          if (res.data.token) {
+            console.log(res.data.token);
+            localStorage.setItem("token", res.data.token);
+          }
+        });
       } else {
         console.log("currently no user");
       }
