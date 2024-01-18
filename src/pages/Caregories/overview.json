@@ -1,20 +1,183 @@
 [
   {
-    "photo": "https://img.freepik.com/free-photo/beautiful-tree-middle-field-covered-with-grass-with-tree-line-background_181624-29267.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1705449600&semt=ais",
-    "title": "Discover the Wonders of Nature",
-    "text": "Embark on a journey to explore the breathtaking beauty of nature. From majestic landscapes to serene environments, our tours offer an escape like no other. Immerse yourself in the charm of diverse destinations.",
-    "speciality": "Nature Exploration"
+    "photo": "https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/topic_centers/2019-8/couple-hiking-mountain-climbing-1296x728-header.jpg?w=1155&h=1528",
+    "tourType": "Hiking",
+    "tripTitle": "Mountain Peaks Expedition",
+    "price": "$800",
+    "tourDetails": "Embark on an adventurous hiking expedition to conquer the challenging mountain peaks. Explore breathtaking landscapes and panoramic views.",
+    "photoGallery": [
+      "https://koa.com/blog/images/group-of-friends-taking-a-hike.jpg?preset=heroimagecropped",
+      "https://ik.imagekit.io/mayamaya/wp-content/uploads/2023/05/SOL_5888edit-2.jpg",
+      "https://www.massaudubon.org/var/site/storage/images/6/2/6/1/1601626-1-eng-US/0bf34246f095-IMG_9782-1920x1280.jpg"
+    ],
+    "tourPlan": [
+      {
+        "day": "Day 1",
+        "description": "Arrival and Base Camp Setup - Settle in and prepare for the upcoming adventure amidst the mountainous terrain."
+      },
+      {
+        "day": "Day 2",
+        "description": "Hike to Summit - Conquer the highest peaks and witness awe-inspiring vistas."
+      },
+      {
+        "day": "Day 3",
+        "description": "Explore Surrounding Trails - Discover hidden gems along scenic trails."
+      },
+      {
+        "day": "Day 4",
+        "description": "Descend and Departure - Descend with memories of an exhilarating expedition."
+      }
+    ]
   },
   {
-    "photo": "https://wander-lush.org/wp-content/uploads/2020/12/UNESCO-Food-Heritage-CanvaPro-Mexican-cuisine.jpg",
-    "title": "Explore Culture and Food",
-    "text": "Step into the heart of vibrant cultures and traditions. Our tours provide an immersive cultural experience, allowing you to witness the rich heritage of each destination. Uncover the stories behind historical landmarks and local customs.",
-    "speciality": "Cultural Immersion"
+    "photo": "https://s3-eu-north-1.amazonaws.com/py3.visitsweden.com/images/120830GlaskogenC398yvindLund2028129-CMSTemp.max-1667x600.jpg",
+    "tourType": "Hiking",
+    "tripTitle": "Forest Trail Adventure",
+    "price": "$750",
+    "tourDetails": "Discover the wonders of nature on a scenic hiking trail through lush forests. Immerse yourself in the tranquility of the wilderness.",
+    "photoGallery": [
+      "https://eu-assets.simpleview-europe.com/deanwye/imageresizer/?image=%2Fdbimgs%2FFDWV%20Gallery%20-%20Things%20To%20Do%20-%20Walking%20-%20Credit%20Souvid%20Datta%20in%20the%20Forest%20of%20Dean%20and%20Wye%20Valley.jpg&action=FeaturedItemsScroll20193x2",
+      "https://d3qvqlc701gzhm.cloudfront.net/thumbs/d42bcc88960e7d101ea038afc049c2624f7ae7ac06541183b174f54c68bdcbd8-750.jpg",
+      "https://visitadirondacks.com/sites/default/files/styles/960x540/public/2020-02/woman-dog-hiking.jpg?itok=YC453E1p"
+    ],
+    "tourPlan": [
+      {
+        "day": "Day 1",
+        "description": "Arrival and Trail Exploration - Unwind amidst the serene forest trails."
+      },
+      {
+        "day": "Day 2",
+        "description": "Hike Through Forest Canopy - Traverse through dense canopies and witness diverse flora and fauna."
+      },
+      {
+        "day": "Day 3",
+        "description": "Wildlife Spotting - Encounter local wildlife on a guided nature walk."
+      },
+      {
+        "day": "Day 4",
+        "description": "Departure - Bid farewell to the enchanting forest."
+      }
+    ]
   },
   {
-    "photo": "https://static.vecteezy.com/system/resources/previews/011/074/179/large_2x/young-person-hiking-female-standing-on-top-rock-backpack-woman-looking-at-beautiful-mountain-valley-at-sunlight-in-summer-landscape-with-sport-girl-high-hills-forest-sky-travel-and-tourism-photo.jpg",
-    "title": "Adventure Awaits",
-    "text": "For thrill-seekers and adventurers, our tours offer exciting escapades. Whether it's hiking through scenic trails, water sports, or exploring hidden gems, our itineraries are designed for those seeking an adrenaline rush.",
-    "speciality": "Adventure Tourism"
+    "photo": "https://cdn.canberraguidedtours.com.au/wp-content/uploads/2022/08/1-Wildlife-Tour-Kangaroos-_-guests-CGT-3.jpg?strip=all&lossy=1&quality=90&sharp=1&ssl=1",
+    "tourType": "Wildlife",
+    "tripTitle": "Safari Adventure",
+    "price": "$900",
+    "tourDetails": "Embark on a thrilling wildlife safari adventure. Encounter exotic animals in their natural habitat and capture unforgettable moments.",
+    "photoGallery": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmRe3mT7Tp_DK6Z-l_WsLKE1plKHnfYonvig&usqp=CAU",
+      "https://www.b2bhospitalityindia.com/images/tourgallery/rajasthan-wildlife-tour/1.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAacO0U-Dq9LBFJkj4Mjg0j38c4zxmJ2ew1g&usqp=CAU"
+    ],
+    "tourPlan": [
+      {
+        "day": "Day 1",
+        "description": "Arrival and Safari Introduction - Get introduced to the safari and its inhabitants."
+      },
+      {
+        "day": "Day 2",
+        "description": "Full-Day Safari Experience - Explore the vast wildlife reserves on a full-day safari."
+      },
+      {
+        "day": "Day 3",
+        "description": "Guided Nature Walk - Discover hidden trails and learn about local flora and fauna."
+      },
+      {
+        "day": "Day 4",
+        "description": "Farewell and Departure - Bid adieu to the wildlife paradise."
+      }
+    ]
+  },
+  {
+    "photo": "https://flatironnomad.nyc/wp-content/uploads/2022/05/1.4-Free-Tours-Header-Option-1.jpg)",
+    "tourType": "Walking",
+    "tripTitle": "Historic City Walk",
+    "price": "$550",
+    "tourDetails": "Enjoy a leisurely walking tour along the coast, taking in the fresh sea breeze and stunning ocean views.",
+    "photoGallery": [
+      "https://media.timeout.com/images/102931723/image.jpg",
+      "https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/21/8f/d1.jpg",
+      "https://images.squarespace-cdn.com/content/v1/569e766e69492e9dd5373ef6/1552923414901-Q29LZ4RGY66QB896M82T/paris-night-photo-tour-007.jpg?format=1000w"
+    ],
+    "tourPlan": [
+      {
+        "day": "Day 1",
+        "description": "Coastal Arrival and Sunset Walk - Begin your coastal retreat with a relaxing sunset stroll."
+      },
+      {
+        "day": "Day 2",
+        "description": "Beachside Exploration - Explore the coastline and its charming surroundings."
+      },
+      {
+        "day": "Day 3",
+        "description": "Relaxation Day - Unwind with a day of leisure by the seaside."
+      },
+      {
+        "day": "Day 4",
+        "description": "Departure - Bid farewell to the coastal paradise."
+      }
+    ]
+  },
+  {
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJQIEMpDE7C19eKCyTysyq5MW0kQ2JT2Diug&usqp=CAU",
+    "tourType": "Walking",
+    "tripTitle": "Historic place",
+
+    "price": "$600",
+    "tourDetails": "Embark on a walking tour through historic city streets, exploring architectural marvels and cultural landmarks.",
+    "photoGallery": [
+      "https://d3rr2gvhjw0wwy.cloudfront.net/uploads/activity_headers/40257/2000x2000-0-70-3d673857082eb25029c27ef36df72a5b.jpg",
+      "https://www.ncl.com/sites/default/files/ALY_16_1920X1080%20LG.jpg",
+      "https://www.ncl.com/sites/default/files/ALY_16_1920X1080%20LG.jpg"
+    ],
+    "tourPlan": [
+      {
+        "day": "Day 1",
+        "description": "Arrival and City Orientation - Immerse yourself in the historical charm of the city."
+      },
+      {
+        "day": "Day 2",
+        "description": "Historical Landmarks Tour - Explore iconic landmarks and learn about their rich history."
+      },
+      {
+        "day": "Day 3",
+        "description": "Local Cuisine Tasting - Indulge in the flavors of the city's culinary delights."
+      },
+      {
+        "day": "Day 4",
+        "description": "Departure - Bid adieu to the historic cityscape."
+      }
+    ]
+  },
+  {
+    "photo": "https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    "tourType": "Sea Beach",
+    "tripTitle": "Sun and Sand Paradise",
+    "price": "$700",
+    "tourDetails": "Relax on pristine beaches, bask in the sun, and enjoy the soothing sounds of the ocean waves on this coastal retreat.",
+    "photoGallery": [
+      "https://media.cnn.com/api/v1/images/stellar/prod/181010131059-australia-best-beaches-cossies-beach-cocos3.jpg?q=w_1600,h_900,x_0,y_0,c_fill",
+      "https://media.timeout.com/images/105720115/image.jpg",
+      "https://img.freepik.com/free-photo/sunset-time-tropical-beach-sea-with-coconut-palm-tree_74190-1075.jpg"
+    ],
+    "tourPlan": [
+      {
+        "day": "Day 1",
+        "description": "Beach Arrival and Leisure Day - Begin your coastal escape with a day of relaxation by the shore."
+      },
+      {
+        "day": "Day 2",
+        "description": "Water Activities and Beachfront Dining - Enjoy water adventures and savor beachfront dining."
+      },
+      {
+        "day": "Day 3",
+        "description": "Relaxation and Sunset Yoga - Unwind with sunset yoga sessions by the beach."
+      },
+      {
+        "day": "Day 4",
+        "description": "Departure - Bid farewell to the sun-soaked paradise."
+      }
+    ]
   }
 ]
