@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 export default function AddNewPackage() {
   const { register, handleSubmit } = useForm();
@@ -29,10 +30,40 @@ export default function AddNewPackage() {
       },
     });
     const arrayOfPhoto = [
-      { 0: arrayOfImage.data.data.display_url },
-      { 1: arrayOfImage.data.data.display_url },
-      { 2: arrayOfImage.data.data.display_url },
+      arrayOfImage.data.data.display_url,
+      arrayOfImage.data.data.display_url,
+      arrayOfImage.data.data.display_url,
     ];
+    const tourPlan = [
+      { day: "day 1", description: data.tourPlan },
+      { day: "day 2", description: data.tourPlan },
+      { day: "day 3", description: data.tourPlan },
+      { day: "day 4", description: data.tourPlan },
+    ];
+    const packageData = {
+      photo: bannerImg.data.data.display_url,
+      tourType: data.tourType,
+      tripTitle: data.tripTitle,
+      tourDetails: data.tourDetails,
+      price: data.price,
+      photoGallery: arrayOfPhoto,
+      tourPlan: tourPlan,
+    };
+    // console.log(packageData);
+    const addPackage = await useAxiosSecureData.post(
+      "/package-tour",
+      packageData
+    );
+
+    if (addPackage.data.insertedId) {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Package added successfully",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
   };
 
   return (
@@ -64,7 +95,7 @@ export default function AddNewPackage() {
           >
             <option value="sea beach">sea beach</option>
             <option value="hiking">Hiking</option>
-            <option value="wildlife">sildlife</option>
+            <option value="wildlife">wildlife</option>
             <option value="walking">walking</option>
           </select>
           <input

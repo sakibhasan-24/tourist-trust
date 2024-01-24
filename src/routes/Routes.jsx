@@ -8,6 +8,7 @@ import Details from "../pages/Caregories/Packages/PackageDetails/Details";
 import AllPackages from "../pages/Caregories/Packages/AllPackages";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import AddNewPackage from "../pages/Dashboard/AddNewPackage/AddNewPackage";
+import Packages from "../pages/Caregories/Packages/Packages";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,12 @@ const router = createBrowserRouter([
         path: "/package-details/:id",
         element: <Details />,
       },
+      // {
+      //   path: "/package/:category",
+      //   element: <Packages />,
+      //   loader: ({ params }) =>
+      //     fetch(`http://localhost:5000/package/${params.category}`),
+      // },
       {
         path: "/dashboard",
         element: <Dashboard />,

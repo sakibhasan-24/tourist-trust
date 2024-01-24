@@ -4,6 +4,7 @@ import Slider from "../Home/Slider";
 import { Helmet } from "react-helmet-async";
 
 import ItemsTab from "../Caregories/ItemsTab";
+import TourTypes from "../Tourtype/TourTypes";
 
 export default function HomeComponents() {
   return (
@@ -14,6 +15,7 @@ export default function HomeComponents() {
       <Banner />
       {/* <Slider /> */}
       <ItemsTab />
+      <TourTypes />
     </div>
   );
 }

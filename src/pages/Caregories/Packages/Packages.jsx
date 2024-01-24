@@ -1,16 +1,24 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import Package from "./Package";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 export default function Packages() {
   const useAxiosPublicData = useAxiosPublic();
+  const [params, setParams] = useSearchParams();
+  const category = params.get("category");
+
   const { data: packages = [] } = useQuery({
     queryKey: ["packages"],
     queryFn: async () => {
       const res = await useAxiosPublicData.get("/package-tour/initial");
       //   console.log(res.data);
-      return res.data;
+      const filteredPackages = category
+        ? res.data.filter((tour) => tour.tourType === category)
+        : res.data;
+
+      console.log(filteredPackages);
+      return filteredPackages;
     },
   });
   return (

@@ -24,11 +24,11 @@ export default function Details() {
       {/* gallery */}
       <div className="grid grid-cols-3 items-center justify-center gap-6 object-cover">
         {singlePackage.photoGallery &&
-          singlePackage?.photoGallery.map((photo) => (
+          singlePackage?.photoGallery.map((photo, idx) => (
             <img
               src={photo}
               alt="photo"
-              key={photo}
+              key={idx}
               className="w-[400px] h-[200px] rounded-lg scale-95 hover:scale-90 transition-all duration-1000 ease-in-out object-cover cursor-pointer"
             />
           ))}
