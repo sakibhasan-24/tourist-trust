@@ -17,7 +17,7 @@ export default function Packages() {
         ? res.data.filter((tour) => tour.tourType === category)
         : res.data;
 
-      console.log(filteredPackages);
+      // console.log(filteredPackages);
       return filteredPackages;
     },
   });

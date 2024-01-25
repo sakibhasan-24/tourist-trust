@@ -10,6 +10,7 @@ import Dashboard from "../pages/Dashboard/Dashboard";
 import AddNewPackage from "../pages/Dashboard/AddNewPackage/AddNewPackage";
 import Packages from "../pages/Caregories/Packages/Packages";
 import Profile from "../pages/Profile/Profile";
+import WishLists from "../pages/WishList/WishLists";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
           {
             path: "/dashboard/profile",
             element: <Profile />,
+          },
+          {
+            path: "/dashboard/myWish-list",
+            element: <WishLists />,
           },
         ],
       },
