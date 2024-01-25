@@ -12,6 +12,7 @@ import Packages from "../pages/Caregories/Packages/Packages";
 import Profile from "../pages/Profile/Profile";
 import WishLists from "../pages/WishList/WishLists";
 import MyBookingList from "../pages/Dashboard/My-booking/MyBookingList";
+import ProfileDetails from "../pages/Profile/TourGuideProfileDetails/ProfileDetails";
 // import MyBookings from "../pages/Dashboard/My-booking/MyBookings";
 
 const router = createBrowserRouter([
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
           {
             path: "/dashboard/my-booking",
             element: <MyBookingList />,
+          },
+          {
+            path: "/dashboard/profile/details/:email",
+            element: <ProfileDetails />,
           },
         ],
       },

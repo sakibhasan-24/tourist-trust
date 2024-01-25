@@ -53,7 +53,7 @@ export default function SignUp() {
         name,
         email,
         photoURL: imageUrl,
-        role: "tourist",
+        role: "Guide",
       };
       // console.log(userInfo);
       useAxiosPublicData.post("/tourist-list", userInfo).then((res) => {

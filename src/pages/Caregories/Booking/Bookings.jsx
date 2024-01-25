@@ -22,6 +22,7 @@ export default function Bookings({ singlePackage }) {
       return res.data;
     },
   });
+  console.log(tourGuides);
   const { user } = useAuth();
   // console.log(user);
   const [role] = useRole();
@@ -37,24 +38,44 @@ export default function Bookings({ singlePackage }) {
       userEmail: user.email,
       userName: user.displayName,
       tourGuide: e.target.tourGuide.value,
-      status: "pending",
+      tourGuideEmail: tourGuides.filter(
+        (tg) => tg.name === e.target.tourGuide.value
+      )[0].email,
+      status: "review",
       tourName: singlePackage?.tripTitle,
       tourId: singlePackage?._id,
       startDate: startDate.toLocaleDateString(),
     };
 
-    const res = await axiosSecure.post("/tour-booking", booking);
-    // console.log(res.data);
-    if (res.data.acknowledged) {
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Booking Successful",
-        showConfirmButton: false,
-        timer: 1500,
-      }).then(() => navigate("/dashboard/my-booking"));
+    console.log(booking);
+    const tourGuide = {
+      status: booking?.status,
 
-      //  save in the backend
+      tourGuideEmail: booking?.tourGuideEmail,
+      tourGuideName: booking?.tourGuide,
+      tourId: booking?.tourId,
+      tourName: booking?.tourName,
+      tourDate: booking?.startDate,
+    };
+    // console.log(tourGuide);
+    const tourGuideData = await axiosSecure.post(
+      "/tour-guide-assign",
+      tourGuide
+    );
+    if (tourGuideData.data.acknowledged) {
+      const res = await axiosSecure.post("/tour-booking", booking);
+      // console.log(res.data);
+      if (res.data.acknowledged) {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Booking Successful",
+          showConfirmButton: false,
+          timer: 1500,
+        }).then(() => navigate("/dashboard/my-booking"));
+
+        //  save in the backend
+      }
     }
   };
   return (
