@@ -26,7 +26,7 @@ export default function Dashboard() {
         <div className="max-w-72 font-semibold  min-h-screen rounded-lg shadow-2xl shadow-slate-900 flex flex-col gap-6 bg-purple-950 p-6">
           <Link to="/dashboard/profile">My Profile</Link>
 
-          <Link to="/">My Booking</Link>
+          <Link to="/dashboard/my-booking">My Booking</Link>
           <Link to="/dashboard/myWish-list">My WishList</Link>
         </div>
       )}

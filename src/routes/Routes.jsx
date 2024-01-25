@@ -11,6 +11,8 @@ import AddNewPackage from "../pages/Dashboard/AddNewPackage/AddNewPackage";
 import Packages from "../pages/Caregories/Packages/Packages";
 import Profile from "../pages/Profile/Profile";
 import WishLists from "../pages/WishList/WishLists";
+import MyBookingList from "../pages/Dashboard/My-booking/MyBookingList";
+// import MyBookings from "../pages/Dashboard/My-booking/MyBookings";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +60,10 @@ const router = createBrowserRouter([
           {
             path: "/dashboard/myWish-list",
             element: <WishLists />,
+          },
+          {
+            path: "/dashboard/my-booking",
+            element: <MyBookingList />,
           },
         ],
       },

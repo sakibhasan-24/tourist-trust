@@ -69,7 +69,7 @@ export default function Details() {
       {/*#TODO: tour guide  */}
       {/* booking form */}
       <div>
-        <Bookings />
+        <Bookings singlePackage={singlePackage} />
       </div>
     </div>
   );

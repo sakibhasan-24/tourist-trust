@@ -3,6 +3,7 @@ import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import Overviews from "./Overview/Overviews";
 import Packages from "./Packages/Packages";
+import TourGuides from "../TourGuide/TourGuides";
 export default function ItemsTab() {
   const [tabIndex, setTabIndex] = useState(0);
   return (
@@ -20,7 +21,9 @@ export default function ItemsTab() {
           <TabPanel>
             <Packages />
           </TabPanel>
-          <TabPanel>salads</TabPanel>
+          <TabPanel>
+            <TourGuides />
+          </TabPanel>
         </Tabs>
       </div>
     </div>
