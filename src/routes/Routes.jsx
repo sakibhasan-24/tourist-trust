@@ -9,6 +9,7 @@ import AllPackages from "../pages/Caregories/Packages/AllPackages";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import AddNewPackage from "../pages/Dashboard/AddNewPackage/AddNewPackage";
 import Packages from "../pages/Caregories/Packages/Packages";
+import Profile from "../pages/Profile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
           {
             path: "/dashboard/addnewpackage",
             element: <AddNewPackage />,
+          },
+          {
+            path: "/dashboard/profile",
+            element: <Profile />,
           },
         ],
       },

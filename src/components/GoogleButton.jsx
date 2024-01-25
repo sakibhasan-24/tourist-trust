@@ -3,15 +3,27 @@ import React from "react";
 import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 export default function GoogleButton() {
   const { user, googleSignIn } = useAuth();
+  const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
   const handleGoogleSignIn = () => {
     googleSignIn().then((res) => {
       const result = res.user;
-      Swal.fire(`${result.displayName} successfully logged in`);
-      navigate("/");
+      const userInfo = {
+        name: result?.displayName,
+        email: result?.email,
+        photo: result?.photoURL,
+        role: "Guide",
+      };
+      axiosPublic.post("/tourist-list", userInfo).then((res) => {
+        if (res.data.insertedId) {
+          Swal.fire(`${result.displayName} successfully logged in`);
+          navigate("/");
+        }
+      });
     });
   };
   return (

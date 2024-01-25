@@ -36,15 +36,15 @@ export default function SignUp() {
     const name = data.name;
     const email = data.email;
     const password = data.password;
-    if (password.length < 6) {
-      return Swal.fire("password must be 6 characters long");
-    }
-    if (!/(?=.*[A-Z])/.test(password)) {
-      return Swal.fire("password must contain one uppercase");
-    }
-    if (!/(?=.*[!@#$&*])/.test(password)) {
-      return Swal.fire("password must contain one special character");
-    }
+    // if (password.length < 6) {
+    //   return Swal.fire("password must be 6 characters long");
+    // }
+    // if (!/(?=.*[A-Z])/.test(password)) {
+    //   return Swal.fire("password must contain one uppercase");
+    // }
+    // if (!/(?=.*[!@#$&*])/.test(password)) {
+    //   return Swal.fire("password must contain one special character");
+    // }
     createUser(email, password).then((res) => {
       const user = res.user;
       user.displayName = name;
@@ -53,8 +53,11 @@ export default function SignUp() {
         name,
         email,
         photoURL: imageUrl,
+        role: "tourist",
       };
+      // console.log(userInfo);
       useAxiosPublicData.post("/tourist-list", userInfo).then((res) => {
+        // console.log(res.data);
         if (res.data.insertedId) {
           Swal.fire({
             icon: "success",
