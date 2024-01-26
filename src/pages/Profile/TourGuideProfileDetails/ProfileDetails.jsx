@@ -1,15 +1,16 @@
 import React from "react";
 import useAuth from "../../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
+
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 export default function ProfileDetails() {
   const { user } = useAuth();
-  const axiosSecure = useAxiosSecure();
+  const axiosPublic = useAxiosPublic();
   const { data: details = {} } = useQuery({
     queryKey: ["user", user?.email],
     queryFn: async () => {
-      const res = await axiosSecure(`/tour-guide-details/${user?.email}`);
+      const res = await axiosPublic(`/tour-guide-details/${user?.email}`);
       return res.data;
     },
   });

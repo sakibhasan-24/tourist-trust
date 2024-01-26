@@ -1,6 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Guide({ guide }) {
+  //   console.log(guide?.email);
   return (
     <div>
       <div className="card w-96 bg-base-100 shadow-xl">
@@ -11,7 +13,9 @@ export default function Guide({ guide }) {
           <h2 className="card-title">{guide?.name}</h2>
 
           <div className="card-actions">
-            <button className="btn btn-primary">Details</button>
+            <Link to={`/profile/details/${guide?._id}`}>
+              <button className="btn btn-primary">Details</button>
+            </Link>
           </div>
         </div>
       </div>

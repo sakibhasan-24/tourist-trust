@@ -49,9 +49,7 @@ export default function Profile() {
             </div>
           </h2>
           {role === "Guide" && (
-            <Link to={`/dashboard/profile/details/${user?.email}`}>
-              Details
-            </Link>
+            <Link to={`/profile/details/${user?.email}`}>Details</Link>
           )}
           <div className="card-actions justify-end">
             {role === "Guide" && (

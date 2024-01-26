@@ -13,6 +13,7 @@ import Profile from "../pages/Profile/Profile";
 import WishLists from "../pages/WishList/WishLists";
 import MyBookingList from "../pages/Dashboard/My-booking/MyBookingList";
 import ProfileDetails from "../pages/Profile/TourGuideProfileDetails/ProfileDetails";
+import MyAssignTours from "../pages/TourGuide/MyAssignTours";
 // import MyBookings from "../pages/Dashboard/My-booking/MyBookings";
 
 const router = createBrowserRouter([
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/package-details/:id",
         element: <Details />,
+      },
+      {
+        path: "/profile/details/:email",
+        element: <ProfileDetails />,
       },
       // {
       //   path: "/package/:category",
@@ -67,8 +72,8 @@ const router = createBrowserRouter([
             element: <MyBookingList />,
           },
           {
-            path: "/dashboard/profile/details/:email",
-            element: <ProfileDetails />,
+            path: "/dashboard/my-assign-tour",
+            element: <MyAssignTours />,
           },
         ],
       },
