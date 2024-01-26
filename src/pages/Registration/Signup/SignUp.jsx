@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
 // import { useWindowSize } from "react-use/lib/useWindowSize";
 // import Confetti from "react-confetti";
 export default function SignUp() {
-  const { createUser, userLogOut } = useAuth();
+  const { createUser, userLogOut, updateUserProfile } = useAuth();
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   //   const { width, height } = useWindowSize();
@@ -53,23 +53,25 @@ export default function SignUp() {
         name,
         email,
         photoURL: imageUrl,
-        role: "Guide",
+        role: "tourist",
       };
-      // console.log(userInfo);
-      useAxiosPublicData.post("/tourist-list", userInfo).then((res) => {
-        // console.log(res.data);
-        if (res.data.insertedId) {
-          Swal.fire({
-            icon: "success",
-            title: "Sign Up Successfully",
-            showConfirmButton: false,
-            timer: 1500,
+      updateUserProfile(name, imageUrl).then(() => {
+        useAxiosPublicData.post("/tourist-list", userInfo).then((res) => {
+          console.log(res.data);
+          if (res.data.insertedId) {
+            Swal.fire({
+              icon: "success",
+              title: "Sign Up Successfully",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+          userLogOut().then((res) => {
+            navigate("/login");
           });
-        }
-        userLogOut().then((res) => {
-          navigate("/login");
         });
       });
+      // console.log(userInfo);
     });
   };
   return (

@@ -16,7 +16,6 @@ export default function GoogleButton() {
         name: result?.displayName,
         email: result?.email,
         photo: result?.photoURL,
-        role: "Guide",
       };
       axiosPublic.post("/tourist-list", userInfo).then((res) => {
         if (res.data.insertedId) {

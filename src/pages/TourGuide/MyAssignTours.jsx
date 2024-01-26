@@ -48,9 +48,9 @@ export default function MyAssignTours() {
   const handleAccept = async (id) => {
     setLoading(true);
     try {
-      console.log(id);
+      //   console.log(id);
       const statusAction = { status: "accepted" };
-      console.log(statusAction);
+      //   console.log(statusAction);
       const res = await axiosSecure.patch(
         `/assign-tour-status/${id}`,
         statusAction

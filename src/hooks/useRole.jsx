@@ -6,14 +6,16 @@ import useAxiosSecure from "./useAxiosSecure";
 export default function useRole() {
   const axiosSecure = useAxiosSecure();
   const { user, loading } = useAuth();
-  console.log(user?.email);
+  // console.log("role-------------------");
+  // console.log(user?.email);
+  const userEmail = user?.email;
+  // console.log(userEmail);
   const { data: role, isLoading } = useQuery({
-    enabled: !loading && !!user?.email,
-    queryKey: ["role", user?.email],
+    queryKey: ["userRole", userEmail],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/tourist-list/${user?.email}`);
-      console.log(res);
-      return res.data?.role;
+      const res = await axiosSecure.get(`/tourist-list/${userEmail}`);
+      console.log(res?.data);
+      return res?.data;
     },
   });
   return [role, isLoading];

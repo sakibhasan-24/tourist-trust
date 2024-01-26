@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
 import TableData from "../../../components/Table/TableData";
 import TableDataBookings from "./TableDataBookings";
+import Swal from "sweetalert2";
 
 export default function MyBookingList() {
   const axiosSecure = useAxiosSecure();
@@ -24,6 +25,34 @@ export default function MyBookingList() {
   });
   //   console.log(bookings);
   //   console.log(user?.email);
+  const bookingCancel = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/tour-booking/${id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            refetch();
+            axiosSecure.delete(`/delete-assign-tour/${id}`).then(() => {});
+          }
+        });
+      }
+    });
+  };
+  const bookingStatus = bookings?.length > 3 ? true : false;
+
+  const handleOffer = (id) => {
+    Swal.fire({
+      title: `Offer added for ${id}`,
+    });
+  };
   {
     isLoading && <div>Loading...</div>;
   }
@@ -34,6 +63,7 @@ export default function MyBookingList() {
           <tr>
             <th>No:</th>
             <th>package</th>
+            <th>Price</th>
             <th>tour guide </th>
             <th>status</th>
             <th>cancel</th>
@@ -48,6 +78,9 @@ export default function MyBookingList() {
                 key={booking._id}
                 booking={booking}
                 idx={idx}
+                bookingCancel={bookingCancel}
+                bookingStatus={bookingStatus}
+                handleOffer={handleOffer}
               />
             ))}
         </tbody>

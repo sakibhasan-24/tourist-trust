@@ -8,6 +8,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 export const AuthContext = createContext(null);
@@ -35,12 +36,17 @@ export default function AuthProvider({ children }) {
     setLaoding(true);
     return signOut(auth);
   };
+  const updateUserProfile = (displayName, photoURL) => {
+    setLaoding(true);
+    return updateProfile(auth.currentUser, { displayName, photoURL });
+  };
   //   memory clean up
 
   useEffect(() => {
     const clearMemory = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
+        // setLaoding(true);
         // console.log(currentUser);
         const userInfo = currentUser.email;
         axiosPublic.post("/jwt", userInfo).then((res) => {
@@ -56,11 +62,12 @@ export default function AuthProvider({ children }) {
     });
     setLaoding(false);
     return () => clearMemory();
-  });
+  }, []);
   //   return value
   const authValue = {
     googleSignIn,
     createUser,
+    updateUserProfile,
     userLogIn,
     userLogOut,
     user,

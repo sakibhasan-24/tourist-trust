@@ -10,7 +10,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 export default function Bookings({ singlePackage }) {
-  console.log("bookings");
+  // console.log("bookings", singlePackage);
   const navigate = useNavigate();
   const [startDate, setStartDate] = useState(new Date());
   const axiosPubluc = useAxiosPublic();
@@ -22,7 +22,7 @@ export default function Bookings({ singlePackage }) {
       return res.data;
     },
   });
-  console.log(tourGuides);
+  // console.log(tourGuides);
   const { user } = useAuth();
   // console.log(user);
   const [role] = useRole();
@@ -34,6 +34,7 @@ export default function Bookings({ singlePackage }) {
     e.preventDefault();
     const booking = {
       packageId: singlePackage._id,
+      price: singlePackage.price,
       packageName: singlePackage.tourType,
       userEmail: user.email,
       userName: user.displayName,
@@ -47,7 +48,7 @@ export default function Bookings({ singlePackage }) {
       startDate: startDate.toLocaleDateString(),
     };
 
-    console.log(booking);
+    // console.log(booking);
     const tourGuide = {
       status: booking?.status,
 

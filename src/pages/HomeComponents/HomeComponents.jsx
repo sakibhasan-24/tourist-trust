@@ -13,9 +13,9 @@ export default function HomeComponents() {
         <title>tourist|Home</title>
       </Helmet>
       <Banner />
-      {/* <Slider /> */}
+      <Slider />
       <ItemsTab />
-      <TourTypes />
+      <TourTypes />\
     </div>
   );
 }

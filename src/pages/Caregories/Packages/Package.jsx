@@ -10,6 +10,7 @@ export default function Package({ singlePackage }) {
   const navigate = useNavigate();
   //   console.log(singlePackage);
   const [role] = useRole();
+  console.log(role);
   const [toggle, setToggle] = useState(false);
   // console.log(role);
   const loading = role === "tourist" ? false : true;

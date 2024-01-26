@@ -26,8 +26,8 @@ export default function Header() {
             <Link to="/">Tourist</Link>
           </div>
           <div className="space-x-6 font-semibold text-xs sm:text-xl ">
-            <Link to="/">Community</Link>
-            <Link to="/login">Blogs</Link>
+            <Link to="/all-packages">All package</Link>
+            {user?.email && <Link to="/dashboard/profile">Profile</Link>}
             <Link to="/signup">Contact Us</Link>
             {user ? (
               <details className=" dropdown dropdown-end">

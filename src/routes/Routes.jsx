@@ -14,12 +14,16 @@ import WishLists from "../pages/WishList/WishLists";
 import MyBookingList from "../pages/Dashboard/My-booking/MyBookingList";
 import ProfileDetails from "../pages/Profile/TourGuideProfileDetails/ProfileDetails";
 import MyAssignTours from "../pages/TourGuide/MyAssignTours";
+import ManageTourist from "../pages/Dashboard/ManageTourist/ManageTourist";
+import Protected from "./Protected";
+import ErrorPage from "../components/ErrorPage";
 // import MyBookings from "../pages/Dashboard/My-booking/MyBookings";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -39,18 +43,21 @@ const router = createBrowserRouter([
       },
       {
         path: "/package-details/:id",
-        element: <Details />,
+        element: (
+          <Protected>
+            <Details />
+          </Protected>
+        ),
       },
       {
         path: "/profile/details/:email",
-        element: <ProfileDetails />,
+        element: (
+          <Protected>
+            <ProfileDetails />
+          </Protected>
+        ),
       },
-      // {
-      //   path: "/package/:category",
-      //   element: <Packages />,
-      //   loader: ({ params }) =>
-      //     fetch(`http://localhost:5000/package/${params.category}`),
-      // },
+
       {
         path: "/dashboard",
         element: <Dashboard />,
@@ -74,6 +81,10 @@ const router = createBrowserRouter([
           {
             path: "/dashboard/my-assign-tour",
             element: <MyAssignTours />,
+          },
+          {
+            path: "/dashboard/manage-tourist",
+            element: <ManageTourist />,
           },
         ],
       },
